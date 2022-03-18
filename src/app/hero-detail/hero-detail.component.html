@@ -1,0 +1,19 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+
+  <div class="entry">
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+  </div>
+  <div class="entry">
+    <label for="hero-pet">Hero's Pet: </label>
+      <select [(ngModel)]="selectedPetName">
+        <option >No Pet</option>
+        <option *ngFor="let p of pets" [ngValue]="p.name">{{p.name}}</option>
+      </select>
+  </div>
+  
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="button" (click)="save()">save</button>
+</div>
